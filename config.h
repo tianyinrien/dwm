@@ -89,8 +89,10 @@ static const char *dpdf[] = { "/home/ren/scripts/dmenu-pdf.sh", NULL };
 static const char *wal[] = { "/home/ren/scripts/wp-change.sh", NULL };
 static const char *statbar[] = { "/home/ren/scripts/dwm-status.sh", NULL };
 static const char *statbark[] = { "/home/ren/scripts/dwm-status0.sh", NULL };
-static const char *kp[] = { "/home/ren/scripts/dmenu-scripts/dmenu-kill-process", NULL };
-static const char *dweb[] = {"/home/ren/scripts/dmenu-scripts/dmenu-websearch", NULL};
+static const char *kp[] = { "/home/ren/scripts/dmenu-kill-process", NULL };
+static const char *editor[] = { "/home/ren/scripts/dmenu-open.sh", NULL };
+static const char *sp[] = { "/home/ren/scripts/dmenu-sp.sh", NULL };
+static const char *dweb[] = {"/home/ren/scripts/dmenu-websearch", NULL};
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x35", NULL };
 
@@ -99,14 +101,16 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
         { MODKEY,                       XK_e,      spawn,          {.v = clipmenu}  },
+        { MODKEY,                       XK_r,      spawn,          {.v = editor}  },
+        { MODKEY,                       XK_q,      spawn,          {.v = sp}  },
         { MODKEY,                       XK_a,      spawn,          {.v = downvol} },
         { MODKEY,                       XK_s,      spawn,          {.v = upvol} },
         { MODKEY|ShiftMask,             XK_z,      spawn,          {.v = mutevol} },
         { MODKEY|ShiftMask,             XK_a,      spawn,          {.v = backlightdown} },
         { MODKEY|ShiftMask,             XK_s,      spawn,          {.v = backlightup} },
-        { MODKEY,                       XK_y,      spawn,          {.v = statbar} },
+        { MODKEY|ControlMask,           XK_a,      spawn,          {.v = statbar} },
         { MODKEY|ShiftMask,             XK_y,      spawn,          {.v = statbark} },
-        { MODKEY,                       XK_r,      spawn,          {.v = dpdf} },
+        { MODKEY,                       XK_y,      spawn,          {.v = dpdf} },
         { MODKEY,                       XK_u,      spawn,          {.v = kp} },
         { MODKEY,                       XK_w,      spawn,          {.v = dweb} },
         { MODKEY|ShiftMask,             XK_w,      spawn,          {.v = wal} },
@@ -177,7 +181,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ControlMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ControlMask,           XK_q,      quit,           {0} },
 };
 
 /* button definitions */
